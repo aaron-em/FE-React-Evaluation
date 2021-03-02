@@ -1,0 +1,38 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Form > :not(*:last-child) {
+  margin-top: 0;
+  margin-bottom: 2vh;
+}
+
+.Form input, .Form button {
+  display: block;
+  padding: 1ex;
+
+  font-size: calc(10px + 0.5vmin);
+
+  border-width: 1px;
+  border-color: black;
+}
+
+.Form input {
+  border-radius: 2px;
+}
+
+.Form button {
+  border-radius: 5px;
+}
+
+.Form button.submit {
+  background-color: rgb(237, 134, 67);
+  color: white;
+  font-weight: bold;
+}
+
+.Form input.invalid {
+  border-color: red;
+}

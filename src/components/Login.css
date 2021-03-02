@@ -1,0 +1,57 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  text-align: center;
+
+  height: 100vh;
+
+  background-color: rgb(244, 249, 253);
+}
+
+.Login > .container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+
+  margin: 25vw;
+  padding: 1ex;
+  min-height: 35vh;
+  max-width: 50vw;
+
+  background: white;
+  box-shadow: 0px 0px 15px rgb(0, 0, 0, 0.4);
+}
+
+.Login > .container > * {
+  height: 100%;
+  width: 50%;
+
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.Login > .container > .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: rgb(96, 111, 124);
+}
+
+.Login > .container > .logo img {
+  height: 5vw;
+  margin: auto;
+}
+
+.Login > .container > .login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: rgb(66, 80, 91);
+  color: white;
+  font-size: calc(10px + 1.5vmin);
+}
