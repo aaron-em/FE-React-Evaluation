@@ -43,7 +43,19 @@
 }
 
 .App-header > .logo > img {
-  height: 5vw;
+  height: 8vh;
+}
+
+@media screen and (width < 1224px) {
+  .App-header > .logo > img {
+    height: 6vh;
+  }
+}
+
+@media screen and (width < 768px) {
+  .App-header > .logo > img {
+    height: 3vh;
+  }
 }
 
 .App-header > .user-display {
