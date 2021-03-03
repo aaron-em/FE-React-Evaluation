@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { applyMiddleware, createStore } from "redux";
+import { persistStore, persistReducer } from "redux-persist";
+import localStorage from "redux-persist/lib/storage";
+import { PersistGate } from "redux-persist/integration/react";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
@@ -12,13 +15,26 @@ import reducer from "./reducers";
 
 import "./index.css";
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+const persistConfig = {
+  key: "root",
+  storage: localStorage
+};
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+const store = createStore(
+  persistedReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );
