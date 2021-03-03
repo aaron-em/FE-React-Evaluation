@@ -55,8 +55,20 @@
 }
 
 .App-header > .user-display {
+  display: flex;
+  flex-direction: row;
+
   flex-grow: 0.3;
   font-weight: bold;
+}
+
+.App-header .user-display .user-name {
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.App-header .user-display .icon-logout {
+  cursor: pointer;
 }
 
 .App-content {
