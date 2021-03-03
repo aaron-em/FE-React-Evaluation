@@ -6,7 +6,7 @@ import { LoginDispatcher } from "../App";
 import "./Login.css";
 import "./Form.css";
 
-import NoIncLogo from "./noinc-logo.png";
+import NoIncLogo from "../assets/noinc-logo.png";
 
 const validateEmail = (maybeEmail: string) =>
   !maybeEmail.match(/^\S+@\S+\.\S+$/) && "Please enter a valid email address.";

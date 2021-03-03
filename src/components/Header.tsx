@@ -10,7 +10,8 @@ import {
   UserLogoutAction
 } from "../reducers/user";
 
-import NoIncLogo from "./noinc-logo.png";
+import "./Header.css";
+import NoIncLogo from "../assets/noinc-logo.png";
 
 type LogoutDispatcher = ActionCreator<UserLogoutAction>;
 
