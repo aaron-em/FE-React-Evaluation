@@ -6,8 +6,14 @@
   text-align: center;
 }
 
-.App-content {
-  background: orange;
+.App-content .page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+
+  padding-left: 10vh;
+  padding-right: 10vh;
 }
 
 a {

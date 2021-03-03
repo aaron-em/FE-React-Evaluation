@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  background-color: #282c34;
+  background-color: rgb(66, 80, 91);
   height: 8vh;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -27,6 +27,7 @@
   padding-right: 2vw;
 
   color: rgb(215, 215, 215);
+  text-decoration: none;
 }
 
 .App-header > .logo {

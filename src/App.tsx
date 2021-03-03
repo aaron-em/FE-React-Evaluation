@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { connect } from "react-redux";
 import { ActionCreator } from "redux";
 import { Route, Switch } from "react-router-dom";
@@ -10,11 +10,18 @@ import {
   actions as UserActions,
   UserLoginAction
 } from "./reducers/user";
-import { Home, Login } from "./components";
+import { Header, Login } from "./components";
+import { Home } from "./pages";
 
 import "./App.css";
 
 export type LoginDispatcher = ActionCreator<UserLoginAction>;
+
+type ContentProps = { children: ReactElement[] };
+
+function Content({ children }: ContentProps) {
+  return <div className="App-content">{children}</div>;
+}
 
 export type AppProps = {
   logUserIn: LoginDispatcher;
@@ -28,11 +35,18 @@ function App({ logUserIn, loggedInUser }: AppProps) {
   console.log("test return", fakeSkills);
   return (
     <div className="App">
-      <Switch>
-        <Route path="/">
-          {isAuthenticated ? <Home /> : <Login onSuccess={logUserIn} />}
-        </Route>
-      </Switch>
+      {!isAuthenticated ? (
+        <Login onSuccess={logUserIn} />
+      ) : (
+        <Content>
+          <Header />
+          <Switch>
+            <Route path="/">
+              <Home username={loggedInUser} />
+            </Route>
+          </Switch>
+        </Content>
+      )}
     </div>
   );
 }
