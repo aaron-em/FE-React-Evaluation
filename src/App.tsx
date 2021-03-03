@@ -1,15 +1,23 @@
 import React, { ReactElement } from "react";
 import { connect } from "react-redux";
+import { ActionCreator } from "redux";
 import { Route, Switch } from "react-router-dom";
 
 import { fakeInterests, fakeSkills } from "./dummy-data";
 import { State } from "./reducers";
-import { AuthenticatedUserName } from "./reducers/user";
+import {
+  AuthenticatedUserName,
+  actions as UserActions,
+  UserLoginAction
+} from "./reducers/user";
 import { Header, Login } from "./components";
 
 import "./App.css";
 
+export type LoginDispatcher = ActionCreator<UserLoginAction>;
+
 export type AppProps = {
+  logUserIn: LoginDispatcher;
   loggedInUser: AuthenticatedUserName;
 };
 
@@ -28,7 +36,7 @@ function Welcome() {
   );
 }
 
-function App({ loggedInUser }: AppProps) {
+function App({ logUserIn, loggedInUser }: AppProps) {
   const isAuthenticated = !!loggedInUser;
 
   console.log("test return", fakeInterests);
@@ -36,12 +44,20 @@ function App({ loggedInUser }: AppProps) {
   return (
     <div className="App">
       <Switch>
-        <Route path="/">{isAuthenticated ? <Welcome /> : <Login />}</Route>
+        <Route path="/">
+          {isAuthenticated ? <Welcome /> : <Login onSuccess={logUserIn} />}
+        </Route>
       </Switch>
     </div>
   );
 }
 
-export default connect((state: State) => ({
-  loggedInUser: state.user.authenticatedUserName
-}))(App);
+export default connect(
+  (state: State) => ({
+    loggedInUser: state.user.authenticatedUserName
+  }),
+  dispatch => ({
+    logUserIn: (authenticatedUserName: AuthenticatedUserName) =>
+      dispatch(UserActions.LOGIN(authenticatedUserName))
+  })
+)(App);

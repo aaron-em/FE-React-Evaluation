@@ -1,16 +1,16 @@
-.Form {
+.Form form {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.Form > :not(*:last-child) {
+.Form div.field {
   margin-top: 0;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
 }
 
 .Form input, .Form button {
-  display: block;
+  margin: 0;
   padding: 1ex;
 
   font-size: calc(10px + 0.5vmin);
@@ -25,14 +25,16 @@
 
 .Form button {
   border-radius: 5px;
-}
-
-.Form button.submit {
   background-color: rgb(237, 134, 67);
   color: white;
   font-weight: bold;
 }
 
 .Form input.invalid {
-  border-color: red;
+  background-color: rgb(255, 192, 192);
+}
+
+.Form div.error {
+  font-size: calc(10px + 0.1vmin);
+  text-align: right;
 }

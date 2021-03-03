@@ -6,27 +6,29 @@ export type UserState = {
   authenticatedUserName: AuthenticatedUserName;
 };
 
-interface UserAction<T = unknown> extends Action {
-  type: T;
+export interface UserLoginAction extends Action<"user.LOGIN"> {
   authenticatedUserName: AuthenticatedUserName;
 }
+
+export type UserLogoutAction = Action<"user.LOGOUT">;
 
 const initialUserState: UserState = {
   authenticatedUserName: null
 };
 
-export const actions = [
-  {
-    type: "user.LOGIN"
-  },
-  {
+export const actions = {
+  LOGIN: (authenticatedUserName: AuthenticatedUserName): UserLoginAction => ({
+    type: "user.LOGIN",
+    authenticatedUserName
+  }),
+  LOGOUT: (): UserLogoutAction => ({
     type: "user.LOGOUT"
-  }
-];
+  })
+};
 
 export default function user(
   state: UserState = initialUserState,
-  action: UserAction<string>
+  action: UserLoginAction | UserLogoutAction
 ): UserState {
   switch (action.type) {
     case "user.LOGIN":
