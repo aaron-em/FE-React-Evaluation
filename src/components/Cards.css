@@ -4,6 +4,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
+
+  margin-top: 4vh;
 }
 
 .card {
@@ -54,4 +56,9 @@
 .card th {
   width: 25%;
   padding-right: 2vh;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
 }

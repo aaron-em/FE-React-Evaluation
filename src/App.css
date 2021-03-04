@@ -12,14 +12,10 @@
   align-items: stretch;
   justify-content: center;
 
-  padding-left: 10vh;
-  padding-right: 10vh;
+  padding-left: 16vh;
+  padding-right: 16vh;
 
   text-align: left;
-}
-
-.App-content .page > * {
-  margin-top: 2vh;
 }
 
 @media screen and (width < 1224px) {
@@ -38,7 +34,7 @@
 
 .App-content .page h1 {
   margin-top: 2vh;
-  margin-bottom: 0;
+  margin-bottom: 2vh;
 
   font-weight: normal;
 }

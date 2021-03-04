@@ -65,6 +65,14 @@ export const actions = {
 
 export type ID = number;
 
+export function isID(v: string | number): v is ID {
+  return typeof v === "number" || !!v.match(/^[0-9]+$/);
+}
+
+export function toID(s: string): ID | false {
+  return isID(s) && parseInt(s, 10);
+}
+
 export type Timestamp = number;
 
 export type TimeISO8601 = string;
@@ -89,6 +97,8 @@ export type Interest = {
   current: boolean;
   detail: string;
 };
+
+export type Item = Skill | Interest;
 
 export type DataState = {
   lastFetch: Timestamp;

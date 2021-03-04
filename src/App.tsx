@@ -9,9 +9,14 @@ import {
   actions as userActions,
   UserLoginAction
 } from "./reducers/user";
-import { actions as dataActions, FetchDataAction } from "./reducers/data";
+import {
+  actions as dataActions,
+  FetchDataAction,
+  Interest,
+  Skill
+} from "./reducers/data";
 import { Header, Login } from "./components";
-import { Home, Interests, Skills } from "./pages";
+import { Home, Items, NotFound } from "./pages";
 
 import "./App.css";
 
@@ -60,13 +65,13 @@ export default function App(): ReactElement {
                 <Home username={loggedInUser} />
               </Route>
               <Route path="/skills">
-                <Skills />
+                <Items<Skill> type="skills" />
               </Route>
               <Route path="/interests">
-                <Interests />
+                <Items<Interest> type="interests" />
               </Route>
               <Route path="*">
-                <Home username={loggedInUser} />
+                <NotFound />
               </Route>
             </Switch>
           </BrowserRouter>

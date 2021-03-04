@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import { Cards } from "../components";
 import { State } from "../reducers";
+import { Interest } from "../reducers/data";
 
 import "./Home.css";
 
@@ -25,7 +26,11 @@ export function Home({ username }: HomeProps): ReactElement {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </p>
-      <Cards type={"Interest"} items={interests.slice(0, 3)} />
+      <Cards<Interest>
+        type="interests"
+        title="Interest"
+        items={interests.slice(0, 3)}
+      />
     </div>
   );
 }

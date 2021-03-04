@@ -1,3 +1,3 @@
 export { Home } from "./Home";
-export { Interests } from "./Interests";
-export { Skills } from "./Skills";
+export { Items } from "./Items";
+export { NotFound } from "./NotFound";

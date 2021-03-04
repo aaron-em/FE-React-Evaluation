@@ -2,6 +2,8 @@
   display: inline-block;
   text-align: center;
 
+  max-width: 10vw;
+
   padding: 1ex;
   font-size: small;
 
