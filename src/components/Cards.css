@@ -1,22 +1,37 @@
 .cards {
   display: flex;
   flex-direction: row;
-  justify-contents: center;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: start;
-
-  margin-top: 6vh;
-  padding-left: 2vw;
-  padding-right: 2vw;
 }
 
 .card {
-  width: 25vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 2vw;
 
-  margin: auto 2vw;
-  padding: 1vh 1vw;
+  min-width: 20vw;
+
+  padding: 1ex;
 
   box-shadow: 0px 0px 15px rgb(0, 0, 0, 0.4);
   background: white;
+}
+
+@media screen and (width < 1224px) {
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+
+    min-width: 50vw;
+  }
+}
+
+@media screen and (width < 768px) {
+  .card {
+    min-width: 90vw;
+  }
 }
 
 .card .inner {
@@ -33,7 +48,7 @@
 }
 
 .card table {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .card th {

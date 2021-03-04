@@ -18,7 +18,28 @@
   text-align: left;
 }
 
+.App-content .page > * {
+  margin-top: 2vh;
+}
+
+@media screen and (width < 1224px) {
+  .App-content .page {
+    padding-left: 4vh;
+    padding-right: 4vh;
+  }
+}
+
+@media screen and (width < 768px) {
+  .App-content .page {
+    padding-left: 1vh;
+    padding-right: 1vh;
+  }
+}
+
 .App-content .page h1 {
+  margin-top: 2vh;
+  margin-bottom: 0;
+
   font-weight: normal;
 }
 

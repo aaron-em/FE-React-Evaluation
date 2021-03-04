@@ -7,6 +7,8 @@
   height: 8vh;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  margin-bottom: 2vh;
 }
 
 .App-header > * {
