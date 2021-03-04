@@ -1,0 +1,10 @@
+.interest-cards {
+  display: flex;
+  flex-direction: row;
+  justify-contents: center;
+  align-items: start;
+
+  margin-top: 6vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}

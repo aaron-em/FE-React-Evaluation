@@ -1,7 +1,7 @@
 import { Action } from "redux";
 import { ThunkAction } from "redux-thunk";
 
-import { apiClient, DataResponse } from "../util";
+import apiClient, { DataResponse } from "../lib/fake-api-client";
 
 export type FetchDataAction = Action<"data.FETCH">;
 
@@ -37,11 +37,13 @@ const fetchData = (): ThunkAction<
   const lastFetch = getState().lastFetch;
   // TODO abstract to config
   if (now - lastFetch < 3600) {
+    console.log("satisfying data request from cache");
     dispatch(receiveAction());
     return;
   }
 
   try {
+    console.log("satisfying data request from API");
     const response = await apiClient.fakeGet();
     dispatch(receiveAction(response));
   } catch (e) {

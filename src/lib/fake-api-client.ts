@@ -1,6 +1,6 @@
-import { fakeInterests as interests, fakeSkills as skills } from "./dummy-data";
+import { Skill, Interest } from "../reducers/data";
 
-import { Skill, Interest } from "./reducers/data";
+import { fakeInterests as interests, fakeSkills as skills } from "./dummy-data";
 
 export type DataResponse = {
   skills: Skill[];
@@ -33,6 +33,8 @@ async function fakeGet(): Promise<DataResponse> {
   });
 }
 
-export const apiClient = {
+const fakeApiClient = {
   fakeGet
 };
+
+export default fakeApiClient;

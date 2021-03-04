@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ActionCreator } from "redux";
 import { Route, Switch } from "react-router-dom";
 
@@ -37,7 +37,6 @@ export default function App(): ReactElement {
   const logUserIn = (authenticatedUserName: AuthenticatedUserName) =>
     dispatch(userActions.LOGIN(authenticatedUserName));
 
-  const { skills, interests } = useSelector((state: State) => state.data);
   const { authenticatedUserName: loggedInUser } = useSelector(
     (state: State) => state.user
   );
