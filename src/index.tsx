@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
 import { applyMiddleware, createStore } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import localStorage from "redux-persist/lib/storage";
@@ -17,7 +16,7 @@ import "./index.css";
 
 const persistConfig = {
   key: "root",
-  storage: localStorage,
+  storage: localStorage
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -31,9 +30,7 @@ const persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </PersistGate>
   </Provider>,
   document.getElementById("root")

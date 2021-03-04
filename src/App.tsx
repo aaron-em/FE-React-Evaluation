@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ActionCreator } from "redux";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { State } from "./reducers";
 import {
@@ -18,7 +18,7 @@ import "./App.css";
 export type LoginDispatcher = ActionCreator<UserLoginAction>;
 export type FetchDataDispatcher = ActionCreator<FetchDataAction>;
 
-type ContentProps = { children: ReactElement[] };
+type ContentProps = { children: ReactElement | ReactElement[] };
 
 function Content({ children }: ContentProps) {
   return <div className="App-content">{children}</div>;
@@ -53,18 +53,23 @@ export default function App(): ReactElement {
         />
       ) : (
         <Content>
-          <Header />
-          <Switch>
-            <Route path="/skills">
-              <Skills />
-            </Route>
-            <Route path="/interests">
-              <Interests />
-            </Route>
-            <Route path="*">
-              <Home username={loggedInUser} />
-            </Route>
-          </Switch>
+          <BrowserRouter>
+            <Header />
+            <Switch>
+              <Route exact path="/">
+                <Home username={loggedInUser} />
+              </Route>
+              <Route path="/skills">
+                <Skills />
+              </Route>
+              <Route path="/interests">
+                <Interests />
+              </Route>
+              <Route path="*">
+                <Home username={loggedInUser} />
+              </Route>
+            </Switch>
+          </BrowserRouter>
         </Content>
       )}
     </div>
