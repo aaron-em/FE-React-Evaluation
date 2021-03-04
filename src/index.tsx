@@ -17,7 +17,7 @@ import "./index.css";
 
 const persistConfig = {
   key: "root",
-  storage: localStorage
+  storage: localStorage,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

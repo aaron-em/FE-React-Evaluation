@@ -2,19 +2,11 @@ import { Action } from "redux";
 
 export type AuthenticatedUserName = string | null;
 
-export type UserState = {
-  authenticatedUserName: AuthenticatedUserName;
-};
-
 export interface UserLoginAction extends Action<"user.LOGIN"> {
   authenticatedUserName: AuthenticatedUserName;
 }
 
 export type UserLogoutAction = Action<"user.LOGOUT">;
-
-const initialUserState: UserState = {
-  authenticatedUserName: null
-};
 
 export const actions = {
   LOGIN: (authenticatedUserName: AuthenticatedUserName): UserLoginAction => ({
@@ -24,6 +16,14 @@ export const actions = {
   LOGOUT: (): UserLogoutAction => ({
     type: "user.LOGOUT"
   })
+};
+
+export type UserState = {
+  authenticatedUserName: AuthenticatedUserName;
+};
+
+const initialUserState: UserState = {
+  authenticatedUserName: null
 };
 
 export default function user(
@@ -36,11 +36,13 @@ export default function user(
         ...state,
         authenticatedUserName: action.authenticatedUserName
       };
+
     case "user.LOGOUT":
       return {
         ...state,
         authenticatedUserName: null
       };
+
     default:
       return state;
   }

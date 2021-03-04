@@ -1,12 +1,11 @@
 import React, { ReactElement } from "react";
 import { Formik, Form, Field, FormikHelpers } from "formik";
 
-import { LoginDispatcher } from "../App";
-
 import "./Login.css";
 import "./Form.css";
 
 import NoIncLogo from "../assets/noinc-logo.png";
+import { AuthenticatedUserName } from "../reducers/user";
 
 const validateEmail = (maybeEmail: string) =>
   !maybeEmail.match(/^\S+@\S+\.\S+$/) && "Please enter a valid email address.";
@@ -32,7 +31,7 @@ type LoginFormValues = {
 };
 
 type LoginProps = {
-  onSuccess: LoginDispatcher;
+  onSuccess: (n: AuthenticatedUserName) => void;
 };
 
 export function Login({ onSuccess }: LoginProps): ReactElement {

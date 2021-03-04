@@ -2,12 +2,13 @@ import React, { ReactElement } from "react";
 import { connect } from "react-redux";
 import { ActionCreator } from "redux";
 import { FaUserAstronaut, FaSignOutAlt } from "react-icons/fa";
+import { BrowserRouter, Link, useRouteMatch } from "react-router-dom";
 
 import { State } from "../reducers";
 import {
   AuthenticatedUserName,
   actions as UserActions,
-  UserLogoutAction
+  UserLogoutAction,
 } from "../reducers/user";
 
 import "./Header.css";
@@ -17,12 +18,21 @@ type LogoutDispatcher = ActionCreator<UserLogoutAction>;
 
 type HeaderLinkProps = {
   text: string;
+  to: string;
 };
 
-function HeaderLink({ text }: HeaderLinkProps) {
+// TODO: Abstract router into App.tsx to avoid having identical route-matching logic in two places
+function HeaderLink({ text, to }: HeaderLinkProps) {
+  const active = useRouteMatch({
+    path: to,
+    exact: to === "/",
+  });
+
   return (
     <div className="link">
-      <a href="#">{text}</a>
+      <Link className={active ? "active" : ""} to={to}>
+        {text}
+      </Link>
     </div>
   );
 }
@@ -42,10 +52,10 @@ type HeaderUserDisplayProps = {
 
 const HeaderUserDisplay = connect(
   (state: State) => ({
-    loggedInUser: state.user.authenticatedUserName
+    loggedInUser: state.user.authenticatedUserName,
   }),
-  dispatch => ({
-    logUserOut: () => dispatch(UserActions.LOGOUT())
+  (dispatch) => ({
+    logUserOut: () => dispatch(UserActions.LOGOUT()),
   })
 )(({ loggedInUser, logUserOut }: HeaderUserDisplayProps) => (
   <div className="user-display">
@@ -63,9 +73,11 @@ export function Header(): ReactElement {
   return (
     <div className="App-header">
       <HeaderLogo />
-      <HeaderLink text="Home" />
-      <HeaderLink text="Navigation 1" />
-      <HeaderLink text="Navigation 2" />
+      <BrowserRouter>
+        <HeaderLink text="Home" to="/" />
+        <HeaderLink text="Skills" to="/skills" />
+        <HeaderLink text="Interests" to="/interests" />
+      </BrowserRouter>
       <HeaderUserDisplay />
     </div>
   );

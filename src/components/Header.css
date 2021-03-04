@@ -17,17 +17,35 @@
   flex-grow: 0;
 
   font-size: calc(10px + 0.5vmin);
+}
+
+.App-header > .link {
+  padding-left: 2vw;
+  padding-right: 2vw;
+
+  margin-top: calc(1ex + 3px);
+  margin-bottom: 1ex;
+
   border-left: 1px solid white;
+}
+
+.App-header > .link:has(> a.active) {
+  margin-bottom: 1ex;
 }
 
 .App-header > .link > a {
   display: inline-block;
 
-  padding-left: 2vw;
-  padding-right: 2vw;
-
   color: rgb(215, 215, 215);
   text-decoration: none;
+
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(66, 80, 91);
+}
+
+.App-header > .link > a.active {
+  border-bottom-color: rgb(237, 134, 67); /* brand orange */
 }
 
 .App-header > .logo {
@@ -40,7 +58,7 @@
   height: 8vh;
   margin-left: 0;
   margin-right: auto;
-  background-color: rgb(96, 111, 124);
+  background-color: rgb(96, 111, 124); /* brand gray */
 }
 
 .App-header > .logo > img {
