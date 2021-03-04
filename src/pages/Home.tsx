@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { useSelector } from "react-redux";
 
-import { InterestCard } from "../components";
+import { Cards } from "../components";
 import { State } from "../reducers";
 
 import "./Home.css";
@@ -25,11 +25,7 @@ export function Home({ username }: HomeProps): ReactElement {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </p>
-      <div className="interest-cards">
-        {interests.slice(0, 3).map((interest, i) => (
-          <InterestCard key={i} interest={interest} ordinal={i + 1} />
-        ))}
-      </div>
+      <Cards type={"Interest"} items={interests.slice(0, 3)} />
     </div>
   );
 }

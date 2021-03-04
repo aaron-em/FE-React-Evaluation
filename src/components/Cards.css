@@ -1,4 +1,15 @@
-.interest-card {
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-contents: center;
+  align-items: start;
+
+  margin-top: 6vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.card {
   width: 25vw;
 
   margin: auto 2vw;
@@ -8,12 +19,12 @@
   background: white;
 }
 
-.interest-card .inner {
+.card .inner {
   background: rgb(244, 249, 253);
   padding: 2vh 2vw;
 }
 
-.interest-card h2 {
+.card h2 {
   margin: 0;
   margin-bottom: 1vh;
   padding: 0;
@@ -21,11 +32,11 @@
   color: rgb(237, 134, 67); /* brand orange */
 }
 
-.interest-card table {
+.card table {
   width: 100%;
 }
 
-.interest-card th {
+.card th {
   width: 25%;
   padding-right: 2vh;
 }
