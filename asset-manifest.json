@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/FE-React-Evaluation/static/css/main.9948b803.chunk.css",
-    "main.js": "/FE-React-Evaluation/static/js/main.f4d849cf.chunk.js",
-    "main.js.map": "/FE-React-Evaluation/static/js/main.f4d849cf.chunk.js.map",
+    "main.css": "/FE-React-Evaluation/static/css/main.92fc2858.chunk.css",
+    "main.js": "/FE-React-Evaluation/static/js/main.e7d272ea.chunk.js",
+    "main.js.map": "/FE-React-Evaluation/static/js/main.e7d272ea.chunk.js.map",
     "runtime-main.js": "/FE-React-Evaluation/static/js/runtime-main.684a87e7.js",
     "runtime-main.js.map": "/FE-React-Evaluation/static/js/runtime-main.684a87e7.js.map",
     "static/js/2.4f91906d.chunk.js": "/FE-React-Evaluation/static/js/2.4f91906d.chunk.js",
     "static/js/2.4f91906d.chunk.js.map": "/FE-React-Evaluation/static/js/2.4f91906d.chunk.js.map",
     "index.html": "/FE-React-Evaluation/index.html",
-    "static/css/main.9948b803.chunk.css.map": "/FE-React-Evaluation/static/css/main.9948b803.chunk.css.map",
+    "static/css/main.92fc2858.chunk.css.map": "/FE-React-Evaluation/static/css/main.92fc2858.chunk.css.map",
     "static/js/2.4f91906d.chunk.js.LICENSE.txt": "/FE-React-Evaluation/static/js/2.4f91906d.chunk.js.LICENSE.txt",
     "static/media/noinc-logo.de3da5c6.png": "/FE-React-Evaluation/static/media/noinc-logo.de3da5c6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.684a87e7.js",
     "static/js/2.4f91906d.chunk.js",
-    "static/css/main.9948b803.chunk.css",
-    "static/js/main.f4d849cf.chunk.js"
+    "static/css/main.92fc2858.chunk.css",
+    "static/js/main.e7d272ea.chunk.js"
   ]
 }
