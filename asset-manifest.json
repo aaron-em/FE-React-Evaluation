@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/noinc-code-challenge/static/css/main.9948b803.chunk.css",
+    "main.js": "/noinc-code-challenge/static/js/main.ce511835.chunk.js",
+    "main.js.map": "/noinc-code-challenge/static/js/main.ce511835.chunk.js.map",
+    "runtime-main.js": "/noinc-code-challenge/static/js/runtime-main.6923a8c1.js",
+    "runtime-main.js.map": "/noinc-code-challenge/static/js/runtime-main.6923a8c1.js.map",
+    "static/js/2.4f91906d.chunk.js": "/noinc-code-challenge/static/js/2.4f91906d.chunk.js",
+    "static/js/2.4f91906d.chunk.js.map": "/noinc-code-challenge/static/js/2.4f91906d.chunk.js.map",
+    "index.html": "/noinc-code-challenge/index.html",
+    "static/css/main.9948b803.chunk.css.map": "/noinc-code-challenge/static/css/main.9948b803.chunk.css.map",
+    "static/js/2.4f91906d.chunk.js.LICENSE.txt": "/noinc-code-challenge/static/js/2.4f91906d.chunk.js.LICENSE.txt",
+    "static/media/noinc-logo.de3da5c6.png": "/noinc-code-challenge/static/media/noinc-logo.de3da5c6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6923a8c1.js",
+    "static/js/2.4f91906d.chunk.js",
+    "static/css/main.9948b803.chunk.css",
+    "static/js/main.ce511835.chunk.js"
+  ]
+}
