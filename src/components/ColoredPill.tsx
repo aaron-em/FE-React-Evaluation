@@ -19,7 +19,7 @@ export function ColoredPill({ text }: ColoredPillProps): ReactElement {
 
   return (
     <div className="colored-pill" style={{ backgroundColor }}>
-      {text}
+      <p>{text}</p>
     </div>
   );
 }

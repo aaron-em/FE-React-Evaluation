@@ -1,8 +1,13 @@
 .colored-pill {
   display: inline-block;
   text-align: center;
-  max-width: 10vw;
   padding: 1ex;
   font-size: small;
   border-radius: 5px;
+}
+
+.colored-pill p {
+  display: inline-block;
+  margin: 0 1vw;
+  padding: 0;
 }
