@@ -1,19 +1,19 @@
 import React, { ReactElement } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { ActionCreator } from "redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { State } from "./reducers";
 import {
   AuthenticatedUserName,
   actions as userActions,
-  UserLoginAction
+  UserLoginAction,
 } from "./reducers/user";
 import {
   actions as dataActions,
   FetchDataAction,
   Interest,
-  Skill
+  Skill,
 } from "./reducers/data";
 import { Header, Login } from "./components";
 import { Home, Items, NotFound } from "./pages";

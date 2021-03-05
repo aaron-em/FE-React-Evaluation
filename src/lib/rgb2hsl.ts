@@ -12,11 +12,11 @@ export function rgbStringToTuple(s: string): RGBTuple {
 }
 
 export function rgbTupleToString(t: RGBTuple): string {
-  return t.map(n => n.toString(16).padStart(2, "0")).join("");
+  return t.map((n) => n.toString(16).padStart(2, "0")).join("");
 }
 
 export function rgb2hsl(rgb: RGBTuple): HSLTuple {
-  const [rp, gp, bp] = rgb.map(n => n / 255);
+  const [rp, gp, bp] = rgb.map((n) => n / 255);
   const Cmax = Math.max(rp, gp, bp);
   const Cmin = Math.min(rp, gp, bp);
   const Δ = Cmax - Cmin;
@@ -68,5 +68,5 @@ export function hsl2rgb(hsl: HSLTuple): RGBTuple {
     }
   })();
 
-  return rgbp.map(n => Math.round((n + m) * 255)) as RGBTuple;
+  return rgbp.map((n) => Math.round((n + m) * 255)) as RGBTuple;
 }

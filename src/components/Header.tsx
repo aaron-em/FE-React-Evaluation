@@ -8,7 +8,7 @@ import { State } from "../reducers";
 import {
   AuthenticatedUserName,
   actions as UserActions,
-  UserLogoutAction
+  UserLogoutAction,
 } from "../reducers/user";
 
 import "./Header.css";
@@ -24,7 +24,7 @@ type HeaderLinkProps = {
 function HeaderLink({ text, to }: HeaderLinkProps) {
   const active = useRouteMatch({
     path: to,
-    exact: to === "/"
+    exact: to === "/",
   });
 
   return (
@@ -51,10 +51,10 @@ type HeaderUserDisplayProps = {
 
 const HeaderUserDisplay = connect(
   (state: State) => ({
-    loggedInUser: state.user.authenticatedUserName
+    loggedInUser: state.user.authenticatedUserName,
   }),
-  dispatch => ({
-    logUserOut: () => dispatch(UserActions.LOGOUT())
+  (dispatch) => ({
+    logUserOut: () => dispatch(UserActions.LOGOUT()),
   })
 )(({ loggedInUser, logUserOut }: HeaderUserDisplayProps) => (
   <div className="user-display">

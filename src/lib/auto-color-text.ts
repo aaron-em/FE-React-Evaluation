@@ -2,10 +2,9 @@ import { hex as md5sum } from "js-md5";
 
 import {
   hsl2rgb,
-  HSLTuple,
   rgb2hsl,
   rgbStringToTuple,
-  rgbTupleToString
+  rgbTupleToString,
 } from "./rgb2hsl";
 
 export type HexColor = string;

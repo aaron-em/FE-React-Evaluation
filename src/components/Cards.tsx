@@ -15,7 +15,7 @@ type CardProps<T extends Item> = {
 function Card<T extends Item>({
   type,
   title,
-  item
+  item,
 }: CardProps<T>): ReactElement {
   return (
     <Link className="card-link" to={`${type}/${item.id}`}>
@@ -44,6 +44,8 @@ function Card<T extends Item>({
   );
 }
 
+// See comment below for details
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 export type CardsProps<T extends Item> = {
   type: string;
   title: string;
@@ -53,27 +55,28 @@ export type CardsProps<T extends Item> = {
 export function Cards<T extends Item>({
   type,
   title,
-  items
+  items,
 }: CardsProps<T>): ReactElement {
   return (
     <div className="cards">
-      {// The problem here seems to be that I don't know how to
-      // tell the type checker that, at runtime, `items` will be
-      // *only* T[], i.e. only either Skill[] or Interest[]. I
-      // assume this is solvable, but it needs someone who knows
-      // more TS than I do right now.
-      // In the meantime, we escape with `any` and promise eslint
-      // it's ok.
-      // In production code I'd instead derive SkillsList and
-      // InterestsList from List and give them the according
-      // concrete types. (And would also be using runtypes to
-      // validate what we get from the API.)
+      {
+        // The problem here seems to be that I don't know how to
+        // tell the type checker that, at runtime, `items` will be
+        // *only* T[], i.e. only either Skill[] or Interest[]. I
+        // assume this is solvable, but it needs someone who knows
+        // more TS than I do right now.
+        // In the meantime, we escape with `any` and promise eslint
+        // it's ok.
+        // In production code I'd instead derive SkillsList and
+        // InterestsList from List and give them the according
+        // concrete types. (And would also be using runtypes to
+        // validate what we get from the API.)
 
-      /* eslint-disable @typescript-eslint/no-explicit-any */
-      items.map((item: any, i: number) => (
-        <Card<T> key={i} type={type} title={title} item={item} />
-      ))
-      /* eslint-enable @typescript-eslint/no-explicit-any */
+        /* eslint-disable @typescript-eslint/no-explicit-any */
+        items.map((item: any, i: number) => (
+          <Card<T> key={i} type={type} title={title} item={item} />
+        ))
+        /* eslint-enable @typescript-eslint/no-explicit-any */
       }
     </div>
   );

@@ -5,7 +5,7 @@ import {
   HSLTuple,
   RGBTuple,
   rgbStringToTuple,
-  rgbTupleToString
+  rgbTupleToString,
 } from "./rgb2hsl";
 
 describe("tuple <-> string conversions", () => {
@@ -44,14 +44,14 @@ describe("rgb2hsl", () => {
     ["dark gray", rgbt("404040"), [0, 0, 0.25]],
 
     ["green near white", rgbt("f7fff7"), [120, 1, 0.98]],
-    ["purple near black", rgbt("070007"), [300, 1, 0.01]]
+    ["purple near black", rgbt("070007"), [300, 1, 0.01]],
   ];
 
   it("should correctly convert RGB colors to HSL", () => {
     const failedCases = cases
       .map(([name, input, expected]) => {
         const actual = rgb2hsl(input);
-        const normalized = actual.map(n => parseFloat(n.toFixed(2)));
+        const normalized = actual.map((n) => parseFloat(n.toFixed(2)));
 
         try {
           expect(normalized).toStrictEqual(expected);

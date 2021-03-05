@@ -9,7 +9,7 @@ export type DataResponse = {
 
 const totallyRealApiResponseBody = {
   skills,
-  interests
+  interests,
 };
 
 async function fakeGet(): Promise<DataResponse> {
@@ -28,13 +28,13 @@ async function fakeGet(): Promise<DataResponse> {
 
   // ordinarily also this would actually *need* to be async, so
   // let's make it real, and a little slow too
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => resolve(totallyRealApiResponseBody), 150);
   });
 }
 
 const fakeApiClient = {
-  fakeGet
+  fakeGet,
 };
 
 export default fakeApiClient;

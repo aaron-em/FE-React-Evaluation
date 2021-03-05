@@ -11,11 +11,11 @@ export type UserLogoutAction = Action<"user.LOGOUT">;
 export const actions = {
   LOGIN: (authenticatedUserName: AuthenticatedUserName): UserLoginAction => ({
     type: "user.LOGIN",
-    authenticatedUserName
+    authenticatedUserName,
   }),
   LOGOUT: (): UserLogoutAction => ({
-    type: "user.LOGOUT"
-  })
+    type: "user.LOGOUT",
+  }),
 };
 
 export type UserState = {
@@ -23,7 +23,7 @@ export type UserState = {
 };
 
 const initialUserState: UserState = {
-  authenticatedUserName: null
+  authenticatedUserName: null,
 };
 
 export default function user(
@@ -34,13 +34,13 @@ export default function user(
     case "user.LOGIN":
       return {
         ...state,
-        authenticatedUserName: action.authenticatedUserName
+        authenticatedUserName: action.authenticatedUserName,
       };
 
     case "user.LOGOUT":
       return {
         ...state,
-        authenticatedUserName: null
+        authenticatedUserName: null,
       };
 
     default:
