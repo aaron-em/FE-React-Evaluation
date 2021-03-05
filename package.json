@@ -16,13 +16,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:ci": "yarn lint && CI=true yarn test",
+    "test": "yarn lint && react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write src",
-    "lint": "npm-run-all lint:types lint:style",
+    "lint": "npm-run-all format lint:types lint:style",
     "lint:style": "prettier --check src && eslint src",
-    "lint:types": "tsc --noEmit"
+    "lint:types": "tsc --noEmit",
+    "test:ci": "CI=true yarn test",
+    "lint:ci": "npm-run-all lint:types lint:style"
   },
   "eslintConfig": {
     "root": true,

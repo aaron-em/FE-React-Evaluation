@@ -6323,13 +6323,6 @@ jest-config@^26.6.3:
     micromatch "^4.0.2"
     pretty-format "^26.6.2"
 
-jest-css-modules@^2.1.0:
-  version "2.1.0"
-  resolved "https://artifacts.ua-ecm.com:443/artifactory/api/npm/ua-npm-master/jest-css-modules/-/jest-css-modules-2.1.0.tgz#9c25ebe9d0214d8f55861a442268fdd4b01b4781"
-  integrity sha1-nCXr6dAhTY9VhhpEImj91LAbR4E=
-  dependencies:
-    identity-obj-proxy "3.0.0"
-
 jest-diff@^26.0.0, jest-diff@^26.6.2:
   version "26.6.2"
   resolved "https://artifacts.ua-ecm.com:443/artifactory/api/npm/ua-npm-master/jest-diff/-/jest-diff-26.6.2.tgz#1aa7468b52c3a68d7d5c5fdcdfcd5e49bd164394"

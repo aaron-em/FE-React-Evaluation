@@ -4,6 +4,7 @@ import { Formik, Form, Field, FormikHelpers } from "formik";
 import "./Login.css";
 import "./Form.css";
 
+import { Sparkle } from ".";
 import NoIncLogo from "../assets/noinc-logo.png";
 import { AuthenticatedUserName } from "../reducers/user";
 
@@ -12,18 +13,6 @@ const validateEmail = (maybeEmail: string) =>
 
 const validateHasValue = (maybeValue: string) =>
   maybeValue.length === 0 && "Please enter a value.";
-
-// Support a11y labels for emoji for which they make sense, and
-// default to an empty string for purely decorative ones
-function Emojo({ value, label = "" }: { value: string; label?: string }) {
-  return (
-    <span role="img" aria-label={label}>
-      {value}
-    </span>
-  );
-}
-
-const Sparkle = () => Emojo({ value: "✨" });
 
 type LoginFormValues = {
   emailAddress: string;
@@ -54,7 +43,6 @@ export function Login({ onSuccess }: LoginProps): ReactElement {
                 values,
                 { setSubmitting }: FormikHelpers<LoginFormValues>
               ) => {
-                console.log(values);
                 onSuccess(values.emailAddress);
                 setSubmitting(false);
               }}

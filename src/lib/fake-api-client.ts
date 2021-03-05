@@ -1,5 +1,5 @@
 import { Skill, Interest } from "../reducers/data";
-
+import config from "./config";
 import { fakeInterests as interests, fakeSkills as skills } from "./dummy-data";
 
 export type DataResponse = {
@@ -13,7 +13,7 @@ const totallyRealApiResponseBody = {
 };
 
 async function fakeGet(): Promise<DataResponse> {
-  const apiUrl = "/"; // TODO abstract to config
+  const apiUrl = config.thingsApi.url;
   const response = await fetch(apiUrl);
 
   if (!response.ok) {

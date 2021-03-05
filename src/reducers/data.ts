@@ -1,6 +1,7 @@
 import { Action } from "redux";
 import { ThunkAction } from "redux-thunk";
 
+import config from "../lib/config";
 import apiClient, { DataResponse } from "../lib/fake-api-client";
 
 export type FetchDataAction = Action<"data.FETCH">;
@@ -33,17 +34,15 @@ const fetchData = (): ThunkAction<
   unknown,
   ReceiveDataAction | ErrorDataAction
 > => async (dispatch, getState): Promise<void> => {
-  const now = new Date().getTime();
+  const now = Math.floor(new Date().getTime() / 1000);
   const lastFetch = getState().lastFetch;
   // TODO abstract to config
-  if (now - lastFetch < 3600) {
-    console.log("satisfying data request from cache");
+  if (now - lastFetch < config.thingsApi.cacheSeconds) {
     dispatch(receiveAction());
     return;
   }
 
   try {
-    console.log("satisfying data request from API");
     const response = await apiClient.fakeGet();
     dispatch(receiveAction(response));
   } catch (e) {
@@ -129,7 +128,6 @@ export default function data(
           ...action.response,
         };
       }
-      console.log(JSON.stringify(state, null, 2));
       return state;
 
     case "data.ERROR":

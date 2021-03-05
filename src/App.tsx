@@ -29,12 +29,6 @@ function Content({ children }: ContentProps) {
   return <div className="App-content">{children}</div>;
 }
 
-// TODO: type-restrict AuthenticatedUserName so Home doesn't need string | null
-
-// Note use of Home as fallback path (also covering /) - ordinarily
-// we would want a proper 404 page, for indexing purposes if
-// nothing else, but in this toy problem I feel OK about what's
-// here
 export default function App(): ReactElement {
   const dispatch = useDispatch();
 

@@ -1,5 +1,6 @@
 import { Action } from "redux";
 
+// TODO: type-restrict AuthenticatedUserName so Home doesn't need string | null
 export type AuthenticatedUserName = string | null;
 
 export interface UserLoginAction extends Action<"user.LOGIN"> {

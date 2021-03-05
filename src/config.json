@@ -1,0 +1,6 @@
+{
+  "thingsApi": {
+    "url": "/",
+    "cacheSeconds": 3600
+  }
+}

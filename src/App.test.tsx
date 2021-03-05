@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import AppContainer from "./AppContainer";
+import AppContainer from "../__mocks__/TestContainer";
 
 describe("app", () => {
   it("renders without crashing", () => {

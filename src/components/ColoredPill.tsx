@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 
 import autoColorText from "../lib/auto-color-text";
 
@@ -9,7 +9,13 @@ export type ColoredPillProps = {
 };
 
 export function ColoredPill({ text }: ColoredPillProps): ReactElement {
-  const [backgroundColor] = useState(autoColorText(text));
+  const [backgroundColor, setBackgroundColor] = useState<string>(
+    autoColorText(text)
+  );
+
+  useEffect(() => {
+    setBackgroundColor(autoColorText(text));
+  }, [text]);
 
   return (
     <div className="colored-pill" style={{ backgroundColor }}>

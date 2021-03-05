@@ -15,6 +15,7 @@ export function rgbTupleToString(t: RGBTuple): string {
   return t.map((n) => n.toString(16).padStart(2, "0")).join("");
 }
 
+// Implemented per https://www.rapidtables.com/convert/color/rgb-to-hsl.html
 export function rgb2hsl(rgb: RGBTuple): HSLTuple {
   const [rp, gp, bp] = rgb.map((n) => n / 255);
   const Cmax = Math.max(rp, gp, bp);
@@ -45,6 +46,7 @@ export function rgb2hsl(rgb: RGBTuple): HSLTuple {
   return [h, s, l];
 }
 
+// Implemented per https://www.rapidtables.com/convert/color/hsl-to-rgb.html
 export function hsl2rgb(hsl: HSLTuple): RGBTuple {
   const [h, s, l] = hsl;
 
