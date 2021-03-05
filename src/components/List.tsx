@@ -5,8 +5,6 @@ import { Cards } from "../components";
 import { State } from "../reducers";
 import { Item } from "../reducers/data";
 
-import "./List.css";
-
 export type ListProps = {
   type: "skills" | "interests";
 };
@@ -15,7 +13,7 @@ function titleCase(type: string): Record<string, string> {
   const capped = type.slice(0, 1).toUpperCase() + type.slice(1);
   return {
     plural: capped,
-    singular: capped.replace(/s$/, ""),
+    singular: capped.replace(/s$/, "")
   };
 }
 

@@ -5,8 +5,6 @@ import { Cards } from "../components";
 import { State } from "../reducers";
 import { Interest } from "../reducers/data";
 
-import "./Home.css";
-
 export type HomeProps = {
   username: string | null;
 };
