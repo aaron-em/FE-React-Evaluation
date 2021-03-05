@@ -27,7 +27,7 @@ type HeaderLinkProps = {
 function HeaderLink({ text, to }: HeaderLinkProps) {
   const active = useRouteMatch({
     path: to,
-    exact: to === `${rootPath}/`, // FIXME abstract into <App>
+    exact: to === `${rootPath || "/"}`, // FIXME abstract into <App>
   });
 
   return (
@@ -75,7 +75,7 @@ export function Header(): ReactElement {
   return (
     <div className="App-header">
       <HeaderLogo />
-      <HeaderLink text="Home" to={`${rootPath}/`} />
+      <HeaderLink text="Home" to={`${rootPath || "/"}`} />
       <HeaderLink text="Skills" to={`${rootPath}/skills`} />
       <HeaderLink text="Interests" to={`${rootPath}/interests`} />
       <HeaderUserDisplay />

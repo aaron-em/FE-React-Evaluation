@@ -1,5 +1,5 @@
 {
-  "rootPath": "/",
+  "rootPath": "",
   "thingsApi": {
     "url": "/",
     "cacheSeconds": 3600

@@ -58,7 +58,7 @@ export default function App(): ReactElement {
           <BrowserRouter>
             <Header />
             <Switch>
-              <Route exact path={`${rootPath}/`}>
+              <Route exact path={`${rootPath || "/"}`}>
                 <Home username={loggedInUser} />
               </Route>
               <Route path={`${rootPath}/skills`}>

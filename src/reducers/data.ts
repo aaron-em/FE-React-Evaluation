@@ -17,14 +17,14 @@ interface ErrorDataAction extends Action<"data.ERROR"> {
 function receiveAction(response?: DataResponse): ReceiveDataAction {
   return {
     type: "data.RECEIVE",
-    response
+    response,
   };
 }
 
 function errorAction(error: string): ErrorDataAction {
   return {
     type: "data.ERROR",
-    error
+    error,
   };
 }
 
@@ -56,7 +56,7 @@ const fetchData = (): ThunkAction<
 };
 
 export const actions = {
-  FETCH: fetchData
+  FETCH: fetchData,
 };
 
 // Type aliases are optional, but useful in that they help us
@@ -113,7 +113,7 @@ const initialDataState: DataState = {
   lastFetch: 0,
   lastError: null,
   skills: [],
-  interests: []
+  interests: [],
 };
 
 export default function data(
@@ -129,7 +129,7 @@ export default function data(
           ...state,
           lastFetch: now,
           lastError: null,
-          ...action.response
+          ...action.response,
         };
       }
       return state;
@@ -138,7 +138,7 @@ export default function data(
       return {
         ...state,
         lastFetch: now,
-        lastError: action.error
+        lastError: action.error,
       };
 
     default:
