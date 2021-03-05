@@ -1,6 +1,7 @@
 import config from "../config.json";
 
 export type Config = {
+  rootPath: string;
   thingsApi: {
     url: string;
     cacheSeconds: number;
@@ -23,4 +24,7 @@ function recursivelyFreeze(
   return r;
 }
 
-export default recursivelyFreeze({ ...config }) as Config;
+export default recursivelyFreeze({
+  ...config,
+  rootPath: process.env.REACT_APP_DEPLOY_ROOT_PATH || config.rootPath,
+}) as Config;

@@ -14,7 +14,7 @@ const totallyRealApiResponseBody = {
 
 async function fakeGet(): Promise<DataResponse> {
   const apiUrl = config.thingsApi.url;
-  const response = await fetch(apiUrl);
+  const response = await fetch(`${config.rootPath}${apiUrl}`);
 
   if (!response.ok) {
     throw new Error(

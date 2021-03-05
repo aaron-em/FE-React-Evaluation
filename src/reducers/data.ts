@@ -17,14 +17,14 @@ interface ErrorDataAction extends Action<"data.ERROR"> {
 function receiveAction(response?: DataResponse): ReceiveDataAction {
   return {
     type: "data.RECEIVE",
-    response,
+    response
   };
 }
 
 function errorAction(error: string): ErrorDataAction {
   return {
     type: "data.ERROR",
-    error,
+    error
   };
 }
 
@@ -34,10 +34,11 @@ const fetchData = (): ThunkAction<
   unknown,
   ReceiveDataAction | ErrorDataAction
 > => async (dispatch, getState): Promise<void> => {
+  const state = getState();
   const now = Math.floor(new Date().getTime() / 1000);
-  const lastFetch = getState().lastFetch;
-  // TODO abstract to config
-  if (now - lastFetch < config.thingsApi.cacheSeconds) {
+  const lastFetch = state.lastFetch;
+
+  if (!state.lastError && now - lastFetch < config.thingsApi.cacheSeconds) {
     dispatch(receiveAction());
     return;
   }
@@ -46,14 +47,16 @@ const fetchData = (): ThunkAction<
     const response = await apiClient.fakeGet();
     dispatch(receiveAction(response));
   } catch (e) {
-    // presumably warn the user and maybe annotate an APM trace or similar, but for this:
+    // presumably warn the user and maybe annotate an APM trace or similar
+    // also: retry with some kind of backoff, depending on error type, maybe
+    // but for now:
     console.error(e.message);
     dispatch(errorAction(e.message));
   }
 };
 
 export const actions = {
-  FETCH: fetchData,
+  FETCH: fetchData
 };
 
 // Type aliases are optional, but useful in that they help us
@@ -110,7 +113,7 @@ const initialDataState: DataState = {
   lastFetch: 0,
   lastError: null,
   skills: [],
-  interests: [],
+  interests: []
 };
 
 export default function data(
@@ -125,7 +128,8 @@ export default function data(
         state = {
           ...state,
           lastFetch: now,
-          ...action.response,
+          lastError: null,
+          ...action.response
         };
       }
       return state;
@@ -134,7 +138,7 @@ export default function data(
       return {
         ...state,
         lastFetch: now,
-        lastError: action.error,
+        lastError: action.error
       };
 
     default:

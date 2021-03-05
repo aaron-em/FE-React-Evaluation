@@ -17,11 +17,14 @@ import {
 } from "./reducers/data";
 import { Header, Login } from "./components";
 import { Home, Items, NotFound } from "./pages";
+import config from "./lib/config";
 
 import "./App.css";
 
 export type LoginDispatcher = ActionCreator<UserLoginAction>;
 export type FetchDataDispatcher = ActionCreator<FetchDataAction>;
+
+const rootPath = config.rootPath;
 
 type ContentProps = { children: ReactElement | ReactElement[] };
 
@@ -55,13 +58,13 @@ export default function App(): ReactElement {
           <BrowserRouter>
             <Header />
             <Switch>
-              <Route exact path="/">
+              <Route exact path={`${rootPath}/`}>
                 <Home username={loggedInUser} />
               </Route>
-              <Route path="/skills">
+              <Route path={`${rootPath}/skills`}>
                 <Items<Skill> type="skills" />
               </Route>
-              <Route path="/interests">
+              <Route path={`${rootPath}/interests`}>
                 <Items<Interest> type="interests" />
               </Route>
               <Route path="*">
